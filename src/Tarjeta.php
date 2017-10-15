@@ -35,3 +35,7 @@ class Tarjeta implements Tarjeta {
  class Bicicleta {
  
  } 
+
+ class Viaje{
+ 	
+ }
