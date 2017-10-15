@@ -28,14 +28,38 @@ class Tarjeta implements Tarjeta {
      }
  }
  
- class Colectivo {
+ abstract class Transporte {
+
+ 	protected $identificador;
+ 	protected $tipo;
+
+ 	public function nombre(){
+ 		return $this->identificador;
+ 	}
+
+
+
+ }
+
+ class Colectivo extends Transporte{
+ 	protected $empresa;
+
+ 	public function __construct($linea, $empresa){
+ 		$this->identificador = $linea;
+ 		$this->empresa = $empresa;
+ 		$this->tipo = "Colectivo";
+
  
  }
  
- class Bicicleta {
- 
+ class Bicicleta extends Transporte{
+ 	
+ 	public function __construct($patente){
+ 		$this->identificador = $patente;
+ 		$this->tipo = "Bicicleta";
+ 	}
  } 
 
  class Viaje{
- 	
+
  }
