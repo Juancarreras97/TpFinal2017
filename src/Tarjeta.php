@@ -28,18 +28,6 @@ class Tarjeta implements Tarjeta {
      }
  }
  
- abstract class Transporte {
-
- 	protected $identificador;
- 	protected $tipo;
-
- 	public function nombre(){
- 		return $this->identificador;
- 	}
-
-
-
- }
 
  class Colectivo extends Transporte{
  	protected $empresa;
