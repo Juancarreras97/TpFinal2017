@@ -28,26 +28,7 @@ class Tarjeta implements Tarjeta {
      }
  }
  
-
- class Colectivo extends Transporte{
- 	protected $empresa;
-
- 	public function __construct($linea, $empresa){
- 		$this->identificador = $linea;
- 		$this->empresa = $empresa;
- 		$this->tipo = "Colectivo";
-
  
- }
- 
- class Bicicleta extends Transporte{
- 	
- 	public function __construct($patente){
- 		$this->identificador = $patente;
- 		$this->tipo = "Bicicleta";
- 	}
- } 
-
  class Viaje{
 
  }
