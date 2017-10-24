@@ -2,14 +2,14 @@
 
 namespace TpFinal;
 
-interface Tarjeta {
+interface Tarjeta_interfaz {
  	public function pagar(Transporte $transporte, $fecha_y_hora);
  	public function recargar($monto);
  	public function saldo();
  	public function viajesRealizados();
 }
 
-class Tarjeta implements Tarjeta {
+class Tarjeta implements Tarjeta_interfaz {
   protected $carga;
   
  	public function pagar(Transporte $transporte, $fecha_y_hora) {
