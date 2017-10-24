@@ -35,8 +35,8 @@ class Tarjeta implements Tarjeta_interfaz {
       }
 
     public function viajes_realizados() {
- 
-     }
+     ;
+    }
  }
  
  
