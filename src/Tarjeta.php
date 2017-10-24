@@ -10,6 +10,7 @@ interface Tarjeta {
 }
 
 class Tarjeta implements Tarjeta {
+  protected $carga;
   
  	public function pagar(Transporte $transporte, $fecha_y_hora) {
  
@@ -20,7 +21,7 @@ class Tarjeta implements Tarjeta {
  	}
  
     public function saldo() {
-        	return 0;
+        	return $this->carga;
       }
 
     public function viajes_realizados() {
