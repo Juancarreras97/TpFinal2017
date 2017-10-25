@@ -6,12 +6,14 @@ interface Tarjeta_interfaz {
  #	public function pagar(Transporte $transporte, $fecha_y_hora);
  	public function recargar($monto);
  	public function saldo();
- #	public function viajesRealizados();
+ 	public function viajesRealizados();
 }
 
 class Tarjeta implements Tarjeta_interfaz {
 	
 	protected $carga;
+	protected $viajes = array();
+	protected $id;
   
  #	public function pagar(Transporte $transporte, $fecha_y_hora) {
 
@@ -35,8 +37,9 @@ class Tarjeta implements Tarjeta_interfaz {
 		return $this->carga;
 	}
 
- #   public function viajes_realizados() {
- #	}
+	public function viajes_realizados() {
+ 		return $viajes;
+ 	}
  }
  
  
