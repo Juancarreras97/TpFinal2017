@@ -17,7 +17,7 @@ class Tarjeta implements Tarjeta_interfaz {
   
 
   	public function __construct($id = 0){
-  		$this->carga = 0;
+  		$this->carga = 0.0;
 
   		if ($id == 0)
   			$this->id = rand(1000, 9999);
