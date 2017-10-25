@@ -3,19 +3,19 @@
 namespace TpFinal;
 
 interface Tarjeta_interfaz {
- 	public function pagar(Transporte $transporte, $fecha_y_hora);
+ #	public function pagar(Transporte $transporte, $fecha_y_hora);
  	public function recargar($monto);
  	public function saldo();
- 	public function viajesRealizados();
+ #	public function viajesRealizados();
 }
 
 class Tarjeta implements Tarjeta_interfaz {
 	
 	protected $carga;
   
- 	public function pagar(Transporte $transporte, $fecha_y_hora) {
- 
- 	}
+ #	public function pagar(Transporte $transporte, $fecha_y_hora) {
+
+ #	}
  
  	public function recargar($monto) {
 		$montosposibles = [10,20,30,50,100,332,624];
@@ -35,9 +35,8 @@ class Tarjeta implements Tarjeta_interfaz {
 		return $this->carga;
 	}
 
-    public function viajes_realizados() {
-    	return 0;
-	}
+ #   public function viajes_realizados() {
+ #	}
  }
  
  
