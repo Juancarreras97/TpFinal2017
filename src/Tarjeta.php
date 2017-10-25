@@ -30,15 +30,18 @@ class Tarjeta implements Tarjeta_interfaz {
  #	}
  
  	public function recargar($monto) {
-		$montosposibles = [10,20,30,50,100,332,624];
+		$montosposibles = [
+			10	=>	10.0,
+			20	=>	20.0,
+			30	=>	30.0,
+			50	=>	50.0,
+			100	=>	100.0,
+			332	=>	388.0,
+			624	=>	776.0
+		];
   
-		if (in_array($monto, array_slice($montosposibles,0,5))){
+		if (in_array($monto, $montosposibles)){
 			$this->carga += $monto;
-		} else if (in_array($monto, $montosposibles)){
-			if ($monto == 332)
-				$this->carga += 388;
-			else
-				$this->carga += 776;
 		} else
 			return "No se puede recargar ese monto";
  	}
