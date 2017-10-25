@@ -41,7 +41,7 @@ class Tarjeta implements Tarjeta_interfaz {
 		];
   
 		if (array_key_exists($monto, $montosposibles)){
-			$this->carga += $monto;
+			$this->carga += $montosposibles($monto);
 		} else
 			return "No se puede recargar ese monto";
  	}
