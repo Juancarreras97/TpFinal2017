@@ -38,11 +38,7 @@ class Tarjeta implements Tarjeta_interfaz {
 	}
 
 	public function viajesRealizados() {
- 		return $viajes;
+ 		return $this->viajes;
  	}
  }
  
- 
- class Viaje{
-
- }

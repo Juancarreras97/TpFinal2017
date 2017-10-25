@@ -9,4 +9,8 @@ namespace TpFinal;
     public function nombre(){
  		return $this->identificador;
     }
+
+    public function Tipo(){
+    	return $this->tipo;
+    }
  }
