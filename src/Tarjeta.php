@@ -15,6 +15,16 @@ class Tarjeta implements Tarjeta_interfaz {
 	protected $viajes = array();
 	protected $id;
   
+
+  	public function __construct($id = 0){
+  		$this->carga = 0;
+
+  		if ($id == 0)
+  			$this->id = rand(1000, 9999);
+  		else
+  			$this->id = $id;
+  	}
+
  #	public function pagar(Transporte $transporte, $fecha_y_hora) {
 
  #	}
