@@ -68,11 +68,11 @@ class Tarjeta implements Tarjeta_interfaz {
 
  			$viaje = new Viaje($precio, $transporte, $fecha);
 
- 			if ($this->saldo() - $precio > 0)
+ 			if ($this->saldo() - $precio > 0){
  				$this->carga -= $precio;
  				$this->viajes[] = $viaje;
  				$this->viajes_en_colectivo[] = $viaje; 
- 			else{
+ 			} else{
  				if(count($this->viajes_plus) <= 2){
  					$this->viajes[] = $viaje;
  					$this->viajes_en_colectivo[] = $viaje; 
