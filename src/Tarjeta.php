@@ -16,6 +16,7 @@ class Tarjeta implements Tarjeta_interfaz {
 	protected $id;
 	protected $viajes_plus = array();
 	protected $viajes_en_colectivo = array();
+	protected $viajes_en_bici = array();
   
 
   	public function __construct($id = 0){
@@ -83,8 +84,25 @@ class Tarjeta implements Tarjeta_interfaz {
  				}
  			}
 
- 		} else{
-
+ 		} else if($transporte->Tipo() == "Bicicleta"){
+			$fecha = strtotime($fecha_y_hora);
+			$precio = 12.45;
+			
+			if (!empty($this->viajes_en_bici)){
+				$ultimo_viaje = end($this->viajes_en_bici);
+				if((strftime('%D',$fecha) == strftime('%D',$ultimo_viaje->Fecha()){
+					$precio = 0;
+				}
+			}
+			
+			$viaje = new Viaje($precio, $transporte, $fecha)
+			
+			if ($this->saldo() - $precio > 0){
+				$this->carga -= $precio;
+				$this->viajes[] = $viaje;
+				$this->viajes_en_bici[] = $viaje;
+			} else
+				return "No tiene suficiente saldo para realizar esta operacion";
  		}
  	}
  
