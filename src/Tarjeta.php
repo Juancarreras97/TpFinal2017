@@ -50,14 +50,14 @@ class Tarjeta implements Tarjeta_interfaz {
  						else
  							$precio = 3.20;
  					} else if ($diferencia <= 5400){
- 						if(intval(strftime('%G',$fecha)) < 6 or intval(strftime('%G',$fecha)) >= 22){
+ 						if(intval(strftime('%H',$fecha)) < 6 or intval(strftime('%H',$fecha)) >= 22){
  							if ($medio == 1)
  								$precio = 1.60;
  							else
  								$precio = 3.20;				
  						}
  						else if((intval(strftime('%w',$fecha)) == 0 and 
- 								intval(strftime('%G',$fecha)) >= 6 and intval(strftime('%G',$fecha)) < 22) or (intval(strftime('%w',$fecha)) == 6 and intval(strftime('%G',$fecha)) >= 14 and intval(strftime('%G',$fecha)) < 22)){
+ 								intval(strftime('%H',$fecha)) >= 6 and intval(strftime('%H',$fecha)) < 22) or (intval(strftime('%w',$fecha)) == 6 and intval(strftime('%H',$fecha)) >= 14 and intval(strftime('%H',$fecha)) < 22)){
 
  							if ($medio == 1)
  								$precio = 1.60;
