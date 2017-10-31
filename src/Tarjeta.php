@@ -61,6 +61,7 @@ class Tarjeta implements Tarjeta_interfaz {
  						}
  					}
  				}
+
  			} else{
  					if ($medio == 1)
  						$precio = 4.85;

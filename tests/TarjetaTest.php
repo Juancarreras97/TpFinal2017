@@ -47,7 +47,7 @@ class EstacionTest extends TestCase {
     	$tarjeta->recargar(30);
     	$tarjeta->pagar($colectivo, "27.10.17 13:40:30");
     	$tarjeta->pagar($colectivo, "27.10.17 13:40:35");
-    	$this->assertEquals($tarjeta->saldo(), 20-(9.70*2));
+    	$this->assertEquals($tarjeta->saldo(), 30-(9.70*2));
     }
 
 }
