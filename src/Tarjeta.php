@@ -31,9 +31,10 @@ class Tarjeta implements Tarjeta_interfaz {
  		if ($transporte->Tipo() == "Colectivo"){
  			$fecha = strtotime($fecha_y_hora);
  			$ultimo_viaje = end($this->viajes_en_colectivo);
+ 			$ultimo_bondi = $ultimo_viaje->Transporte();
 
 
- 			if ($transporte->nombre() == $ultimo_viaje->Transporte()->nombre()){
+ 			if ($transporte->nombre() == $ultimo_bondi->nombre()){
 
 	 			$diferencia = $fecha - $ultimo_viaje->Fecha();
 
