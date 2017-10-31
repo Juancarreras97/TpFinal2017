@@ -30,42 +30,43 @@ class Tarjeta implements Tarjeta_interfaz {
  	public function pagar(Transporte $transporte, $fecha_y_hora, $medio = 0) {
  		if ($transporte->Tipo() == "Colectivo"){
  			$fecha = strtotime($fecha_y_hora);
- 			$ultimo_viaje = end($this->viajes_en_colectivo);
- 			$ultimo_bondi = $ultimo_viaje->Transporte();
+ 			
+ 			if (!empty($this->viajes_en_colectivo)){
+ 				$ultimo_viaje = end($this->viajes_en_colectivo);
 
 
- 			if ($transporte->nombre() == $ultimo_bondi->nombre()){
+ 				if ($transporte->nombre() == $ultimo_viaje->Transporte()->nombre()){
 
-	 			$diferencia = $fecha - $ultimo_viaje->Fecha();
+	 				$diferencia = $fecha - $ultimo_viaje->Fecha();
 
- 				if ($diferencia <= 3600){
- 					if ($medio == 1)
- 						$precio = 1.60;
- 					else
- 						$precio = 3.20;
- 				} else if ($diferencia <= 5400){
- 					if(intval(strftime('%G',$fecha)) < 6 or intval(strftime('%G',$fecha)) >= 22){
+ 					if ($diferencia <= 3600){
  						if ($medio == 1)
  							$precio = 1.60;
  						else
- 							$precio = 3.20;				
- 					}
- 					else if((intval(strftime('%w',$fecha)) == 0 and 
+ 							$precio = 3.20;
+ 					} else if ($diferencia <= 5400){
+ 						if(intval(strftime('%G',$fecha)) < 6 or intval(strftime('%G',$fecha)) >= 22){
+ 							if ($medio == 1)
+ 								$precio = 1.60;
+ 							else
+ 								$precio = 3.20;				
+ 						}
+ 						else if((intval(strftime('%w',$fecha)) == 0 and 
  								intval(strftime('%G',$fecha)) >= 6 and intval(strftime('%G',$fecha)) < 22) or (intval(strftime('%w',$fecha)) == 6 and intval(strftime('%G',$fecha)) >= 14 and intval(strftime('%G',$fecha)) < 22)){
 
- 						if ($medio == 1)
- 							$precio = 1.60;
- 						else
- 							$precio = 3.20;	
+ 							if ($medio == 1)
+ 								$precio = 1.60;
+ 							else
+ 								$precio = 3.20;	
+ 						}
  					}
  				}
-
  			} else{
- 				if ($medio == 1)
- 					$precio = 4.85;
- 				else
- 					$precio = 9.70;
- 			}
+ 					if ($medio == 1)
+ 						$precio = 4.85;
+ 					else
+ 						$precio = 9.70;
+ 				}
 
  			$viaje = new Viaje($precio, $transporte, $fecha);
 
