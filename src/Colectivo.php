@@ -9,6 +9,6 @@ namespace TpFinal;
  		$this->identificador = $linea;
  		$this->empresa = $empresa;
  		$this->tipo = "Colectivo";
+ 	}
 
- 
  }
