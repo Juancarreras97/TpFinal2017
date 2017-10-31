@@ -40,7 +40,7 @@ class Tarjeta implements Tarjeta_interfaz {
  				$ultimo_viaje = end($this->viajes_en_colectivo);
 
 
- 				if ($transporte->nombre() == $ultimo_viaje->Transporte()->nombre()){
+ 				if ($transporte->nombre() != $ultimo_viaje->Transporte()->nombre()){
 
 	 				$diferencia = $fecha - $ultimo_viaje->Fecha();
 
