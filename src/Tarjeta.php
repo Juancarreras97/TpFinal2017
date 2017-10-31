@@ -95,7 +95,7 @@ class Tarjeta implements Tarjeta_interfaz {
 				}
 			}
 			
-			$viaje = new Viaje($precio, $transporte, $fecha)
+			$viaje = new Viaje($precio, $transporte, $fecha);
 			
 			if ($this->saldo() - $precio > 0){
 				$this->carga -= $precio;
