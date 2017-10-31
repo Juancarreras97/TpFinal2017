@@ -31,6 +31,11 @@ class Tarjeta implements Tarjeta_interfaz {
  		if ($transporte->Tipo() == "Colectivo"){
  			$fecha = strtotime($fecha_y_hora);
  			
+ 			if ($medio == 1)
+ 				$precio = 4.85;
+ 			else
+				$precio = 9.70;
+ 				
  			if (!empty($this->viajes_en_colectivo)){
  				$ultimo_viaje = end($this->viajes_en_colectivo);
 
@@ -62,12 +67,7 @@ class Tarjeta implements Tarjeta_interfaz {
  					}
  				}
 
- 			} else{
- 					if ($medio == 1)
- 						$precio = 4.85;
- 					else
- 						$precio = 9.70;
- 				}
+ 			}
 
  			$viaje = new Viaje($precio, $transporte, $fecha);
 
