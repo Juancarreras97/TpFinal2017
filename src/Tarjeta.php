@@ -90,7 +90,7 @@ class Tarjeta implements Tarjeta_interfaz {
 			
 			if (!empty($this->viajes_en_bici)){
 				$ultimo_viaje = end($this->viajes_en_bici);
-				if((strftime('%D',$fecha) == strftime('%D',$ultimo_viaje->Fecha()){
+				if((strftime('%D',$fecha) == strftime('%D',$ultimo_viaje->Fecha()))){
 					$precio = 0;
 				}
 			}
