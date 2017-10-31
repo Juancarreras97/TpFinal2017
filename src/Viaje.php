@@ -6,12 +6,14 @@ class Viaje{
 	protected $tipo;
 	protected $monto;
 	protected $transporte;
+	protected $fecha;
 
-	public function __construct($monto, Transporte $transporte){
+	public function __construct($monto, Transporte $transporte, $fecha){
 		$this->monto = $monto;
 		$this->transporte = $transporte;
+		$this->fecha = $fecha;
 
-		$this->tipo = "En " . $transporte->Tipo();
+		$this->tipo = $transporte->Tipo();
 	}
 
 	public function Tipo(){
@@ -24,6 +26,10 @@ class Viaje{
 
 	public function Monto(){
 		return $this->monto;
+	}
+
+	public function Fecha(){
+		return $this->fecha;
 	}
 
 }
