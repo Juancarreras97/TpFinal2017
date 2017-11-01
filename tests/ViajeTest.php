@@ -12,8 +12,9 @@ class ViajeTest extends TestCase {
     	$tarjeta->recargar(20);
     	$tarjeta->pagar($colectivo, "27.10.17 13:40:30");
 
-    	$monto = end($tarjeta->ViajesRealizados())->Monto();
-    	$this->assertEquals($monto, 9.70);
+    	$viajesrealizados = $tarjeta->ViajesRealizados();
+
+    	$this->assertEquals(end($viajesrealizados)->Monto(), 9.70);
 
 	}
 }
