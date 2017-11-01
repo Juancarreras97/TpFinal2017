@@ -81,4 +81,15 @@ class EstacionTest extends TestCase {
         $this->assertEquals($tarjeta->saldo(), ((50-9.70)-3.20)-9.70);
     }
 
+	public function testSacarunabici(){
+		$tarjeta = new Tarjeta();
+		$bici = new Bicicleta(1234)
+		
+		$tarjeta->recargar(50);
+    	
+    	$tarjeta->pagar($bici, "27.10.17 13:40:30");
+    	$this->assertEquals($tarjeta->saldo(), 50-12.45);	
+
+	}
+
 }
