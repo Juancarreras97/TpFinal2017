@@ -58,7 +58,11 @@ class Tarjeta implements Tarjeta_interfaz {
  								$precio = 3.20;				
  						}
  						else if((intval(strftime('%w',$fecha)) == 0 and 
- 								intval(strftime('%H',$fecha)) >= 6 and intval(strftime('%H',$fecha)) < 22) or (intval(strftime('%w',$fecha)) == 6 and intval(strftime('%H',$fecha)) >= 14 and intval(strftime('%H',$fecha)) < 22)){
+ 								intval(strftime('%H',$fecha)) >= 6 and 
+ 								intval(strftime('%H',$fecha)) < 22) 
+ 								or (intval(strftime('%w',$fecha)) == 6 and 
+ 								intval(strftime('%H',$fecha)) >= 14 and 
+ 								intval(strftime('%H',$fecha)) < 22)){
 
  							if ($medio == 1)
  								$precio = 1.60;
@@ -81,6 +85,10 @@ class Tarjeta implements Tarjeta_interfaz {
  					$this->viajes[] = $viaje;
  					$this->viajes_en_colectivo[] = $viaje; 
  					$this->viajes_plus[] = $viaje;
+ 				}
+
+ 				else{
+ 					return "No tiene suficiente saldo para realizar esta operacion";
  				}
  			}
 
@@ -121,6 +129,28 @@ class Tarjeta implements Tarjeta_interfaz {
 			$this->carga += $montosposibles[$monto];
 		} else
 			return "No se puede recargar ese monto";
+
+		$this->restarviajesplus();
+
+ 	}
+
+ 	protected function restarviajesplus() {
+		
+		if(count($this->viajes_plus) > 0){
+			if(count($this->viajes_plus) == 1){
+				$this->carga -= end(($this->viajes_plus))->Monto();
+				unset($this->viajes_plus[0]);
+			} else {
+				$this->carga -= end(($this->viajes_plus))->Monto();
+				unset($this->viajes_plus[1]);
+
+				if($this->saldo() > $this->viajes_plus[0]->Monto())
+					$this->restarviajesplus();
+				else
+					return "No tiene suficiente saldo para pagar todos los viajes plus";
+
+			}
+		}
  	}
  
     public function saldo() {
