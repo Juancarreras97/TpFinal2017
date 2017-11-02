@@ -29,7 +29,7 @@ class Tarjeta implements Tarjeta_interfaz {
   	}
 
  	public function pagar(Transporte $transporte, $fecha_y_hora, $medio = 0) {
- 		if ($transporte->Tipo() == "Colectivo"){
+ 		if ($transporte->get_tipo() == "Colectivo"){
  			$fecha = strtotime($fecha_y_hora);
  			
  			if ($medio == 1)
